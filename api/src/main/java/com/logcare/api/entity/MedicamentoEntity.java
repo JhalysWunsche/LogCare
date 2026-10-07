@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "medicamento")
 @Data
@@ -14,7 +16,18 @@ public class MedicamentoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String nome;
-    private String descricao;
-    private String quantidade;
+    @Column(name = "nome")
+    private String nomeMedicamento;
+    @Column(name = "dsg")
+    private String dosagemMedicamento;
+    @Column(name = "qtdatu")
+    private String quantidadeAtualMedicamento;
+    @Column(name = "qtdmin")
+    private String quantidadeMinimaMedicamento;
+    @Column(name = "datini")
+    private LocalDate dataInicioMedicamento;
+    @Column(name = "datter")
+    private LocalDate dataTerminoMedicamento;
+    @Column(name = "datcri")
+    private LocalDate dataCriacaoMedicamento;
 }

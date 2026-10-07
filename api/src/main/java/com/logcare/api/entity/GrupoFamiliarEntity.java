@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "grupo_familiar")
 @Data
@@ -15,9 +17,11 @@ public class GrupoFamiliarEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String nome_familia;
-    private String usuario_responsavel;
-    private String usuario_familiar;
-    private String usuario_cuidador;
-    private String usuario_dependente;
+    @Column(name = "nome")
+    private String nomeGrupoFamiliar;
+    @ManyToOne
+    @JoinColumn(name = "responsavel_id")
+    private UsuarioEntity usuarioResponsavel;
+    @Column(name = "datcri")
+    private LocalDate dataCriacaoGrupoFamiliar;
 }
