@@ -1,4 +1,10 @@
 package com.logcare.api.repository;
 
-public class MedicamentoRepository {
+import com.logcare.api.entity.MedicamentoEntity;
+import com.logcare.api.entity.PlanoEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface MedicamentoRepository extends JpaRepository<MedicamentoEntity, Long> {
 }
