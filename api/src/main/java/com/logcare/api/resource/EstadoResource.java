@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -34,7 +36,8 @@ public class EstadoResource {
     @Transactional
     public ResponseEntity<EstadoResponseDTO> insert(@RequestBody EstadoRequestDTO requestDTO){
         EstadoResponseDTO responseDTO = estadoService.insert(requestDTO);
-        return ResponseEntity.ok().body(responseDTO);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(responseDTO.id()).toUri();
+        return ResponseEntity.created(uri).body(responseDTO);
     }
 
     @PutMapping(value = "{id}")

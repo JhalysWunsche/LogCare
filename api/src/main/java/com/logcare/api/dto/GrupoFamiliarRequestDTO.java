@@ -1,4 +1,8 @@
 package com.logcare.api.dto;
 
-public record GrupoFamiliarResponseDTO() {
+public record GrupoFamiliarRequestDTO(
+        Long responsavelId,
+        String nomeGrupoFamiliar
+
+) {
 }

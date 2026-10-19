@@ -24,4 +24,9 @@ public class GrupoFamiliarEntity {
     private UsuarioEntity usuarioResponsavel;
     @Column(name = "datcri")
     private LocalDate dataCriacaoGrupoFamiliar;
+
+    @PrePersist
+    public void prePersist() {
+        this.dataCriacaoGrupoFamiliar = LocalDate.now();
+    }
 }

@@ -42,6 +42,11 @@ public class UsuarioEntity {
     @Column(name = "datcri")
     private LocalDate dataCriacaoUsuario;
 
+    @PrePersist
+    public void prePersist() {
+        this.dataCriacaoUsuario = LocalDate.now();
+    }
+
 
 
 
