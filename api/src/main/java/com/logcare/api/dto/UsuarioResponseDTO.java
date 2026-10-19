@@ -1,4 +1,14 @@
 package com.logcare.api.dto;
 
-public record UsuarioResponseDTO() {
+import java.time.LocalDate;
+
+public record UsuarioResponseDTO(
+        Long id,
+        String nome,
+        String email,
+        LocalDate dataNascimento,
+        String telefone,
+        String biografia,
+        String tipoUsuario,
+        String nomeEstado) {
 }

@@ -32,14 +32,17 @@ public class UsuarioEntity {
     private String senhaUsuario;
     @ManyToOne
     @JoinColumn(name = "estado_id")
-    private EstadoEntity idEstadoUsuario;
+    private EstadoEntity estadoUsuario;
     @ManyToOne
     @JoinColumn(name = "cidade_id")
-    private CidadeEntity idCidadeUsuario;
+    private CidadeEntity cidadeUsuario;
     @ManyToOne
     @JoinColumn(name = "plano_id")
-    private PlanoEntity idPlanoUsuario;
+    private PlanoEntity planoUsuario;
     @Column(name = "datcri")
     private LocalDate dataCriacaoUsuario;
+
+
+
 
 }
