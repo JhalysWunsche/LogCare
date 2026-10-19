@@ -38,12 +38,10 @@ public class MedicamentoEntity {
     @Column(name = "datcri")
     private LocalDate dataCriacaoMedicamento;
 
-    //Chave Estrangeira ligando ao Grupo Familiar
     @ManyToOne
     @JoinColumn(name = "grupo_id")
     private EstadoEntity idEstado;
 
-    // Chave estrangeira ligando ao usuario
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private UsuarioEntity idUsuario;

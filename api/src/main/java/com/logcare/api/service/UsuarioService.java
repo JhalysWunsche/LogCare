@@ -22,7 +22,7 @@ import java.util.Optional;
 public class UsuarioService {
     private UsuarioRepository usuarioRepository;
     private final EstadoRepository estadoRepository;
-    private final PlanoRepository planoRepository;   // <-- Adicionar aqui
+    private final PlanoRepository planoRepository;
     private final CidadeRepository cidadeRepository;
 
     public UsuarioService(UsuarioRepository usuarioRepository, EstadoRepository estadoRepository, CidadeRepository cidadeRepository, PlanoRepository planoRepository) {
@@ -35,7 +35,7 @@ public class UsuarioService {
     public List<UsuarioResponseDTO> findAll() {
         List<UsuarioEntity> entidades = usuarioRepository.findAll();
         return entidades.stream()
-                .map(entidade -> new UsuarioResponseDTO( // Criamos o DTO diretamente aqui!
+                .map(entidade -> new UsuarioResponseDTO(
                         entidade.getId(),
                         entidade.getNomeUsuario(),
                         entidade.getEmailUsuario(),
