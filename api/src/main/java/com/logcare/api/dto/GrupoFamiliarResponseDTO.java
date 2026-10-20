@@ -4,9 +4,9 @@ import java.time.LocalDate;
 
 public record GrupoFamiliarResponseDTO(
         Long grupoFamiliarId,
-        String nomeGrupoFamiliar,
+        String grupofamiliarNome,
         Long responsavelId,
-        String nomeResponsavel,
-        LocalDate dataCriacaoGrupoFamiliar
+        String responsavelNome,
+        LocalDate grupoFamiliarDataCriacao
 ) {
 }

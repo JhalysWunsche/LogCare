@@ -6,7 +6,6 @@ import com.logcare.api.entity.GrupoFamiliarEntity;
 import com.logcare.api.entity.UsuarioEntity;
 import com.logcare.api.repository.GrupoFamiliarRepository;
 import com.logcare.api.repository.UsuarioRepository;
-import com.logcare.api.service.exception.ResourceExceptionHandler;
 import com.logcare.api.service.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,7 +53,7 @@ public class GrupoFamiliarService {
         UsuarioEntity responsavel = usuarioRepository.findById(dto.responsavelId())
                 .orElseThrow(() -> new ResourceNotFoundException("Usuário responsável não encontrado!"));
         GrupoFamiliarEntity entity = new GrupoFamiliarEntity();
-        entity.setNomeGrupoFamiliar(dto.nomeGrupoFamiliar());
+        entity.setNomeGrupoFamiliar(dto.grupoFamiliarNome());
         entity.setUsuarioResponsavel(responsavel);
         entity = grupoFamiliarRepository.save(entity);
         return new GrupoFamiliarResponseDTO(
@@ -71,7 +70,7 @@ public class GrupoFamiliarService {
         UsuarioEntity responsavel = usuarioRepository.findById(dto.responsavelId())
                 .orElseThrow(() -> new ResourceNotFoundException("Usuário responsável não encontrado!"));
         GrupoFamiliarEntity entity = grupoFamiliarRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Grupo Familiar Não encontrado!"));
-        entity.setNomeGrupoFamiliar(dto.nomeGrupoFamiliar());
+        entity.setNomeGrupoFamiliar(dto.grupoFamiliarNome());
         entity.setUsuarioResponsavel(responsavel);
         entity = grupoFamiliarRepository.save(entity);
         return new GrupoFamiliarResponseDTO(

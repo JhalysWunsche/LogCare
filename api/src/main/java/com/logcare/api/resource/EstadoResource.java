@@ -3,9 +3,6 @@ package com.logcare.api.resource;
 
 import com.logcare.api.dto.EstadoRequestDTO;
 import com.logcare.api.dto.EstadoResponseDTO;
-import com.logcare.api.dto.UsuarioResponseDTO;
-import com.logcare.api.entity.EstadoEntity;
-import com.logcare.api.repository.EstadoRepository;
 import com.logcare.api.service.EstadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +33,7 @@ public class EstadoResource {
     @Transactional
     public ResponseEntity<EstadoResponseDTO> insert(@RequestBody EstadoRequestDTO requestDTO){
         EstadoResponseDTO responseDTO = estadoService.insert(requestDTO);
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(responseDTO.id()).toUri();
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(responseDTO.estadoId()).toUri();
         return ResponseEntity.created(uri).body(responseDTO);
     }
 

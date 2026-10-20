@@ -11,7 +11,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "plano")
 @NoArgsConstructor
-@AllArgsConstructorgit s
+@AllArgsConstructor
 public class PlanoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
