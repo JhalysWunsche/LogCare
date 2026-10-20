@@ -70,7 +70,7 @@ public class MedicamentoService {
         }
         @Transactional
        public void delete(Long id) {
-                MedicamentoEntity entity = medicamentoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Estado não encontrado!"));
+                MedicamentoEntity entity = medicamentoRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Medicamento não encontrado!"));
                 medicamentoRepository.delete(entity);
        }
 
