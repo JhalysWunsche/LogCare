@@ -40,9 +40,14 @@ public class MedicamentoEntity {
 
     @ManyToOne
     @JoinColumn(name = "grupo_id")
-    private EstadoEntity idEstado;
+    private GrupoFamiliarEntity idGrupo;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     private UsuarioEntity idUsuario;
+
+    @PrePersist
+    public void prePersist() {
+        this.dataCriacaoMedicamento = LocalDate.now();
+    }
 }
